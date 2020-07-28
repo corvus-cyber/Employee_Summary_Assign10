@@ -13,12 +13,14 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-addTeamMember()
+addTeamMember();
+//An object to store all of the necesscary input the user provides
+teamTotal = [];
 
 // Check to see what kind of team member they want to add
 function addTeamMember (){
     console.log("----------");
-    console.log("Let's begin building out your team!");
+    console.log("Let's build out your team!");
     inquirer.prompt([
         {
             type: "list",
@@ -39,7 +41,7 @@ function addTeamMember (){
                 enterIntern();
                 break;
             case "I do not want to add any more team members":
-                render(team);
+                render(teamTotal);
                 break;
         }
     })
@@ -70,6 +72,11 @@ function enterManager (){
         }
 
     ]) 
+    .then(response => {
+        const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+        teamTotal.push(manager);
+        addTeamMember();
+    })
 }
 
 //function for input of engineer
