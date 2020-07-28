@@ -21,12 +21,12 @@ teamTotal = [];
 function addTeamMember (){
     console.log("----------");
     console.log("Let's build out your team!");
-    inquirer.prompt([
+    return inquirer.prompt([
         {
             type: "list",
             name: "role",
             message: "What role does this team member fulfill?",
-            choices: ["Manager", "Engineer", "Intern", "The Team Is Complete"]
+            choices: ["Manager", "Engineer", "Intern", "The Team Is Complete"],
         }
     ])
     .then(response => {
@@ -53,7 +53,7 @@ function enterManager (){
         {
             type: "input",
             name: "name",
-            message: "What is the name of your team's manager"
+            message: "What is the name of your team's manager",
         },
         {
             type: "input",
@@ -103,6 +103,11 @@ function enterEngineer(){
             message: "what is their Github username?"
         }
     ])
+    .then(response => {
+        const engineer = new Engineer(response.name, response.id, response.email, response.github);
+        teamTotal.push(engineer);
+        addTeamMember();
+    })
 }
 //function for input of intern
 function enterIntern(){
@@ -124,10 +129,24 @@ function enterIntern(){
         },
         {
             type: "input",
-            name: "github",
+            name: "school",
             message: "what school is their alma mater?"
         }
     ])
+    .then(response => {
+        const intern = new Intern(response.name, response.id, response.email, response.school);
+        teamTotal.push(intern);
+        addTeamMember();
+    })
+}
+
+function catchEmpty(value){
+
+    if(value===""){
+        return "Please enter required information."
+    } 
+    else return true;
+
 }
 
 // After the user has input all employees desired, call the `render` function (required
