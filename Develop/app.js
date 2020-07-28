@@ -51,6 +51,58 @@ function addTeamMember (){
         }
     ])
 }
+
+//function for engineer
+function enterEngineer(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your engineer's name?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "what is their employee id?"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "what is their work email?"
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "what is their Github username?"
+        }
+    ])
+}
+//function for intern
+function enterIntern(){
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "What is your intern's name?"
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "what is their employee id?"
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "what is their work email?"
+        },
+        {
+            type: "input",
+            name: "github",
+            message: "what school is their alma mater?"
+        }
+    ])
+}
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
