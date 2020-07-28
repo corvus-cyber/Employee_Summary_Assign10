@@ -21,22 +21,26 @@ function addTeamMember (){
     console.log("Let's begin building out your team!");
     inquirer.prompt([
         {
-            type: "input",
+            type: "list",
             name: "role",
             message: "What role does this team member fulfill?",
             choices: ["Manager", "Engineer", "Intern", "The Team Is Complete"]
         }
     ])
-    then(response => {
+    .then(response => {
         switch(response.role) {
             case "Manager":
                 enterManager();
+                break;
             case "Engineer":
                 enterEngineer();
+                break;
             case "Intern":
                 enterIntern();
+                break;
             case "I do not want to add any more team members":
                 render(team);
+                break;
         }
     })
 }
