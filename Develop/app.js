@@ -13,8 +13,35 @@ const render = require("./lib/htmlRenderer");
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+addTeamMember()
 
-//For a team to exist, it needs a team leader/manager. I will assume that the user has a manager and have them fill out the necesscary info
+// Check to see what kind of team member they want to add
+function addTeamMember (){
+    console.log("----------");
+    console.log("Let's begin building out your team!");
+    inquirer.prompt([
+        {
+            type: "input",
+            name: "role",
+            message: "What role does this team member fulfill?",
+            choices: ["Manager", "Engineer", "Intern", "The Team Is Complete"]
+        }
+    ])
+    then(response => {
+        switch(response.role) {
+            case "Manager":
+                enterManager();
+            case "Engineer":
+                enterEngineer();
+            case "Intern":
+                enterIntern();
+            case "I do not want to add any more team members":
+                render(team);
+        }
+    })
+}
+
+//function for input of manager
 function enterManager (){
     inquirer.prompt([
         {
@@ -40,19 +67,8 @@ function enterManager (){
 
     ]) 
 }
-//Check to see what kind of team member they want to add
-function addTeamMember (){
-    inquirer.prompt([
-        {
-            type: "input",
-            name: "role",
-            message: "What role does this team member fill?",
-            choices: ["Manager", "Engineer", "Intern", "The Team Is Complete"]
-        }
-    ])
-}
 
-//function for engineer
+//function for input of engineer
 function enterEngineer(){
     inquirer.prompt([
         {
@@ -77,7 +93,7 @@ function enterEngineer(){
         }
     ])
 }
-//function for intern
+//function for input of intern
 function enterIntern(){
     inquirer.prompt([
         {
