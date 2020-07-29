@@ -153,6 +153,8 @@ function enterIntern(){
     })
 }
 
+//Section on validating the input
+//It will not allow the user to input no value 
 function catchEmpty(value){
 
     if(value===""){
@@ -161,7 +163,7 @@ function catchEmpty(value){
     else return true;
 
 }
-
+//It will not allow the user to input an already used id
 function checkId(id){
 
     if(id==="") {
@@ -176,12 +178,12 @@ function checkId(id){
     return true;
     
 }
-
+//Checking that the email is valid
 function emailValidate(email){
     if(email===""){
         return "Please enter required information."
     } 
-    if(email != "@" || email.charAt(0)==="."){
+    if((email != "@" )|| (email.charAt(0)===".")){
         return "your email is invalid"    
     }
     else return true
