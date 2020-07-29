@@ -160,17 +160,14 @@ function catchEmpty(value){
     if(value===""){
         return "Please enter required information."
     } 
-    else return true;
+    else{ 
+        return true};
 
 }
 //It will not allow the user to input an already used id
 function checkId(id){
 
-    if(id==="") {
-        return "Please enter required information"
-    }
-
-    if (seenID[id]){
+    if ((seenID[id]) || (id==="")){
       return "This ID belongs to another employee.";  
     }
 
@@ -180,13 +177,19 @@ function checkId(id){
 }
 //Checking that the email is valid
 function emailValidate(email){
-    if(email===""){
-        return "Please enter required information."
-    } 
-    if((email != "@" )|| (email.charAt(0)===".")){
+    // if(email===""){
+    //     return "Please enter required information."
+    // } 
+    const emailCorrect = /\S+@\S+\.\S+/;
+    if((email.charAt(0)===".")||(email==="")){
         return "your email is invalid"    
     }
-    else return true
+    else if(email.match(emailCorrect)){
+        return true
+    }
+    else{
+        return "your email is invalid"
+    }
 
 }
 
