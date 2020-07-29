@@ -9,7 +9,7 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-
+var seenID = {};
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -60,13 +60,14 @@ function enterManager (){
             type: "input",
             name: "id",
             message: "what is their employee id?",
-            validate: catchEmpty
+            validate: checkId
+            
         },
         {
             type: "input",
             name: "email",
             message: "what is their work email?",
-            validate: catchEmpty
+            validate: emailValidate
         },
         {
             type: "input",
@@ -96,13 +97,13 @@ function enterEngineer(){
             type: "input",
             name: "id",
             message: "what is their employee id?",
-            validate: catchEmpty
+            validate: checkId 
         },
         {
             type: "input",
             name: "email",
             message: "what is their work email?",
-            validate: catchEmpty
+            validate: emailValidate
         },
         {
             type: "input",
@@ -130,13 +131,13 @@ function enterIntern(){
             type: "input",
             name: "id",
             message: "what is their employee id?",
-            validate: catchEmpty
+            validate: checkId
         },
         {
             type: "input",
             name: "email",
             message: "what is their work email?",
-            validate: catchEmpty
+            validate: emailValidate
         },
         {
             type: "input",
@@ -162,12 +163,28 @@ function catchEmpty(value){
 }
 
 function checkId(id){
-    if(id===id){
-        
+
+    if(id==="") {
+        return "Please enter required information"
     }
+
+    if (seenID[id]){
+      return "This ID belongs to another employee.";  
+    }
+
+    seenID[id] = true;
+    return true;
+    
 }
 
-function emailValidate(value){
+function emailValidate(email){
+    if(email===""){
+        return "Please enter required information."
+    } 
+    if(email != "@" || email.charAt(0)==="."){
+        return "your email is invalid"    
+    }
+    else return true
 
 }
 
