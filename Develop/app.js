@@ -54,21 +54,25 @@ function enterManager (){
             type: "input",
             name: "name",
             message: "What is the name of your team's manager",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "id",
-            message: "what is their employee id?"
+            message: "what is their employee id?",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "email",
-            message: "what is their work email?"
+            message: "what is their work email?",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "officeNumber",
-            message: "what is their office number?"
+            message: "what is their office number?",
+            validate: catchEmpty
         }
 
     ]) 
@@ -85,22 +89,26 @@ function enterEngineer(){
         {
             type: "input",
             name: "name",
-            message: "What is your engineer's name?"
+            message: "What is your engineer's name?",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "id",
-            message: "what is their employee id?"
+            message: "what is their employee id?",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "email",
-            message: "what is their work email?"
+            message: "what is their work email?",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "github",
-            message: "what is their Github username?"
+            message: "what is their Github username?",
+            validate: catchEmpty
         }
     ])
     .then(response => {
@@ -115,22 +123,26 @@ function enterIntern(){
         {
             type: "input",
             name: "name",
-            message: "What is your intern's name?"
+            message: "What is your intern's name?",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "id",
-            message: "what is their employee id?"
+            message: "what is their employee id?",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "email",
-            message: "what is their work email?"
+            message: "what is their work email?",
+            validate: catchEmpty
         },
         {
             type: "input",
             name: "school",
-            message: "what school is their alma mater?"
+            message: "what school is their alma mater?",
+            validate: catchEmpty
         }
     ])
     .then(response => {
@@ -146,6 +158,16 @@ function catchEmpty(value){
         return "Please enter required information."
     } 
     else return true;
+
+}
+
+function checkId(id){
+    if(id===id){
+        
+    }
+}
+
+function emailValidate(value){
 
 }
 
