@@ -1,22 +1,26 @@
 # Employee Team Generator
 
-# Purpose
+# Purpose and Usage
+This assignment takes node.js, javascript, a variety of npms, and builds a html that acts as a quick reference for the different members of a team. 
+The user will first install the package.json via the command line, then enter node app.js to begin the series of questions and prompts, and then they will be presented with a polished html that will contain their enter information inside of the output folder. This html will be titled team.html.
+I built this project in order to test my newfound knowledge in node.js,  javascript, the usage of npms, the building of classes and subclasses, and the effective useage of test.js
+
+
 
 # Table of Contents
-1. [Purpose](#Purpose)
-2. [Process](#Process)
-3. [Issues](#Issues)
-4. [What I Learned](#What)
-5. [Video](#Video)
-6. [Link](#Link)
-7. [Screenshot](#Screenshot)
+1. [Process](#Process)
+2. [Issues](#Issues)
+3. [What I Learned](#What)
+4. [Video](#Video)
+5. [Link](#Link)
+6. [Screenshot](#Screenshot)
 
 # Process 
 * As it stated at the beginning of the instructions, it was vital that the different js files were qualified by the different test files. I began by writing out the different js files so that their constructors and functions fit the perameters of the pre-designed tests.
 * I then built the objects within app.js, using inquirer, so that there would be unique messages for each of the different employee types, so that the different responses needed to build the html would be validated.
 * From there I built an object and function that would let the user choose between the different employee types, uses a case and switches. I also included the option that the team had been completed, which would take them to a function for writing the file. 
 * I then built the write file function, which used the pre-designed html formats (with some tweaks that I provided, which would alter the coloring and margins) to build a new html document within the output folder
-* As a final touch I created a series of validation functions which would make sure that the user was putting in the same id's multiple times, to make sure that the user entered a value, and a function to make sure that the email had valid content.  
+* As a final touch I created a series of validation functions which would make sure that the user was putting in the same id's multiple times, to make sure that the user entered a value, and a function to make sure that the email had valid content (I obtained the code for this at [UVI.dev/validate-email](https://ui.dev/validate-email-address-javascript/)).  
 
 # Issues I Encountered 
 * I accidentally kept the characteristics of the "employee" inside of a function for a long time, this meant that I could not build out the necesscary functions that depended on it without having to expand require module. In order to fix this and keep my code dry, I change Employee to a class in which I placed the necesscary functions. 
