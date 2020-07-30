@@ -9,7 +9,7 @@ class Employee {
     }
 
     getEmail(){
-        if(this.email =""){
+        if(this.email != ""){
             return this.email
         }
         else return "test@test.com"

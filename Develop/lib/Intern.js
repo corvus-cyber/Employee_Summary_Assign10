@@ -4,12 +4,16 @@ const Employee = require ("./Employee.js")
 class Intern extends Employee {
     constructor (name, id, role, school){
         super (name, id);
-        this.school = "UCLA"
+        this.school = school
         this.role = "Intern"
     }
     
     getSchool(){
-        return this.school
+        if(this.shool != ""){
+            return this.school
+        }
+        else {
+            return "UCLA"}
     }
 }
 
