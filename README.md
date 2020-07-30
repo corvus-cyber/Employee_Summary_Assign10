@@ -10,10 +10,9 @@ I built this project in order to test my newfound knowledge in node.js,  javascr
 # Table of Contents
 1. [Process](#Process)
 2. [Issues](#Issues)
-3. [What I Learned](#What)
+3. [Mastered](#Mastered)
 4. [Video](#Video)
-5. [Link](#Link)
-6. [Screenshot](#Screenshot)
+5. [Screenshots](#Screenshots)
 
 # Process 
 * As it stated at the beginning of the instructions, it was vital that the different js files were qualified by the different test files. I began by writing out the different js files so that their constructors and functions fit the perameters of the pre-designed tests.
@@ -28,7 +27,7 @@ I built this project in order to test my newfound knowledge in node.js,  javascr
 * I had difficult conceptually understanding how to check whether the user was entering an already pre-existing id. In order to solve this, I went to an instructional assistant, who said it would be a good idea to build an empty array that would hold ids. From there I built a function that would check this array, and if it already had this id within it it would not allow the user to proceed. Once a non duplicate was entered it would be added to the array for future verification. 
 * I had difficulty deploying the user's output, as the content placed within lib folder over-rode the users. In order to fix this, I built an if statement inside of the classes that would let the user's input to replace the default. That way the tests would still be proven true, while not preventing the user from deploying their responses.
 
-# What I Learned
+# Mastered
 * How to effectively run a test 
 * How to develop the output for an html file within javascript and node.js
 * How to run validation functions to test user's output
