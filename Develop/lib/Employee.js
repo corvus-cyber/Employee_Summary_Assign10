@@ -4,12 +4,15 @@ class Employee {
     constructor (name, id, email){
     this.name =name;
     this.id = id;
-    this.email = "test@test.com";
+    this.email = email;
     this.role = "Employee"
     }
 
     getEmail(){
-        return this.email
+        if(this.email =""){
+            return this.email
+        }
+        else return "test@test.com"
     };
     
     getName(){
