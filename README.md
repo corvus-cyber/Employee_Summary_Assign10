@@ -35,6 +35,8 @@ I built this project in order to test my newfound knowledge in node.js,  javascr
 
 # Video 
 ![Video Gif of the Application](./screenshots/assign10.gif)
+* If you wish to go back and see specific steps of the demo, feel free to click the link below and download the video demo
+* [Video Demo](https://drive.google.com/file/d/1shIOHbzjeWvQRq-lu-bDD-g8ZBwUdrgv/view?usp=sharing)
 
 # Screenshots 
 ![Screenshot of the test.js](./screenshots/test.png)
