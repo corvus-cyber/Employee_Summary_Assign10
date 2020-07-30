@@ -28,6 +28,7 @@ function addTeamMember (){
             choices: ["Manager", "Engineer", "Intern", "The Team Is Complete"],
         }
     ])
+    //this will let them choose
     .then(input => {
         switch(input.role) {
             case "Manager":
