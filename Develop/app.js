@@ -11,16 +11,16 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 const render = require("./lib/htmlRenderer");
 
 //variable to place id's inside and verify to make sure they are unique
-const seenID = {};
-const teamTotal = [];
-
+let seenID = {};
+//An object to store all of the necesscary input the user provides
+let teamTotal = [];
 
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
-addTeamMember();
-//An object to store all of the necesscary input the user provides
-teamTotal = [];
+
+
+
 
 // Check to see what kind of team member they want to add
 function addTeamMember (){
@@ -34,8 +34,8 @@ function addTeamMember (){
             choices: ["Manager", "Engineer", "Intern", "The Team Is Complete"],
         }
     ])
-    .then(response => {
-        switch(response.role) {
+    .then(input => {
+        switch(input.role) {
             case "Manager":
                 enterManager();
                 break;
@@ -48,7 +48,6 @@ function addTeamMember (){
             case "I do not want to add any more team members":
                 render(teamTotal);
                 createHtml();
-                break;
         }
     })
 }
@@ -83,8 +82,8 @@ function enterManager (){
         }
 
     ]) 
-    .then(response => {
-        const manager = new Manager(response.name, response.id, response.email, response.officeNumber);
+    .then(input => {
+        const manager = new Manager(input.name, input.id, input.email, input.officeNumber);
         teamTotal.push(manager);
         addTeamMember();
     })
@@ -118,8 +117,8 @@ function enterEngineer(){
             validate: catchEmpty
         }
     ])
-    .then(response => {
-        const engineer = new Engineer(response.name, response.id, response.email, response.github);
+    .then(input => {
+        const engineer = new Engineer(input.name, input.id, input.email, input.github);
         teamTotal.push(engineer);
         addTeamMember();
     })
@@ -152,8 +151,8 @@ function enterIntern(){
             validate: catchEmpty
         }
     ])
-    .then(response => {
-        const intern = new Intern(response.name, response.id, response.email, response.school);
+    .then(input => {
+        const intern = new Intern(input.name, input.id, input.email, input.school);
         teamTotal.push(intern);
         addTeamMember();
     })
@@ -161,25 +160,24 @@ function enterIntern(){
 
 //Section on validating the input
 //It will not allow the user to input no value 
-function catchEmpty(value){
+function catchEmpty(input){
 
-    if(value===""){
+    if(input===""){
         return "Please enter required information."
     } 
     else{ 
         return true};
 
 }
-//It will not allow the user to input an already used id
+//This function will not allow the user to input an already used id
 function checkId(id){
 
     if ((seenID[id]) || (id==="")){
-      return "This ID belongs to another employee.";  
+      return "This ID is invalid";  
     }
 
     seenID[id] = true;
-    return true;
-    
+    return true; 
 }
 //Checking that the email is valid
 function emailValidate(email){
@@ -201,6 +199,8 @@ function emailValidate(email){
 function createHtml (){
     fs.writeFile(outputPath, render(teamTotal), "utf-8")
 }
+
+addTeamMember();
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
