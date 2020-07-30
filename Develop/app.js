@@ -45,7 +45,7 @@ function addTeamMember (){
             case "Intern":
                 enterIntern();
                 break;
-            case "I do not want to add any more team members":
+            case "The Team Is Complete":
                 render(teamTotal);
                 createHtml();
         }
@@ -197,7 +197,8 @@ function emailValidate(email){
 
 }
 function createHtml (){
-    fs.writeFile(outputPath, render(teamTotal), "utf-8")
+    fs.writeFileSync(outputPath, render(teamTotal), "utf-8");
+    console.log("Your Team html has been created. Go to the output folder to see your creation.")
 }
 
 addTeamMember();
